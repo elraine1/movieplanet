@@ -23,8 +23,11 @@
 <?php
 	$client_id = "V9jj1_LsXcC1yH5_ORE2";
 	$client_secret = "UZXCf0pQgr";
-	$title = "터널";
-	$url = "https://openapi.naver.com/v1/search/movie.xml";
+	$target = "movie";
+	$url = "https://openapi.naver.com/v1/search/" . $target . ".xml";
+//	$url = "https://openapi.naver.com/v1/search/movie.xml";
+	$url = sprintf("%s?query=%s&display=5&start=1&sort=sim", $url, $query);
+	
 	$is_post = true;
 	
 	/* 2016. 09. 01.  여기부터.
