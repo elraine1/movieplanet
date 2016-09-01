@@ -95,7 +95,6 @@
                         type:'POST',
                         data:{'query':query},
                         success:function(result){
-								alert(123);
                                 $('#result').html('');
                                 if(result['channel']['display'] > 0){
                                         $('.__oldlist').remove();
