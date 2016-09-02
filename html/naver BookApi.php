@@ -1,11 +1,34 @@
 <?php 
 class Book
 {
-	
-        private $key = "V9jj1_LsXcC1yH5_ORE2"; // 사용자가 발급받은 오픈API 키 
-        private $searchUrl = "http://openapi.naver.com/search"; // 오픈API 호출URL
-        private $target = "book";			// book, movie...
+		private function query($query){
+			
+			$client_id = "V9jj1_LsXcC1yH5_ORE2";
+			$client_secret = "UZXCf0pQgr";
+			$target = "book";			// book, movie...
+			
+		
+			$url = "https://openapi.naver.com/v1/search/".$target.".xml";
+			$url = sprintf("%s?query=%s", $url, $query);
+	//		$url = sprintf("%s?query=%s&display=5&start=1&sort=sim", $url, $query);
+			$is_post = true;
+		
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_POST, $is_post);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
+			$headers = array();
+			$headers[] = "X-Naver-Client-Id: ".$client_id;
+			$headers[] = "X-Naver-Client-Secret: ".$client_secret;
+
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+			$response = curl_exec ($ch);
+			curl_close ($ch);
+		}
+		
+		
         /**
          * API 결과를 받아오기 위하여 오픈API 서버에 Request 를 하고 결과를 XML Object 로 반환하는 메소드
          * @return object
@@ -30,4 +53,7 @@ class Book
                 return $result; 
         }
 }       
+
+
+ 				
 ?>
