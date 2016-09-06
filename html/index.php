@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
 <style type="text/css">
 	
 	#header{
@@ -27,7 +28,7 @@
 	
 	#logo{
 		width: 75%;
-		height: 125px;
+		height: 150px;
 		margin: 0 auto;
 		float: center;
 		border: 3px solid red;
@@ -38,7 +39,7 @@
 	
 	#menu_box{
 		width: 75%;
-		height: 75px;
+		height: 50px;
 		float: center;
 		margin: 0 auto;
 		border: 2px solid darkgray;
@@ -84,34 +85,21 @@
 
 </head>
 <body>
-
-
-	<div id="header">	
-		<div id="login_box">
-			<span id="login">로그인 박스</span>
-		</div>
-		<div id="logo">
-			<h1>로오오오오오고오오오오오</h1>
-		</div>
-		<div id="menu_box">
-			<ul id="menu">
-				<li><a href="#"> 메뉴 1 </a></li>
-				<li><a href="#"> 메뉴 2 </a></li>
-				<li><a href="#"> 메뉴 3 </a></li>
-			</ul>
-		</div>
-	</div>
-	
+	<?php 
+		require_once('template/header.php');
+	?>
 	<div id="content_wrap">
 		
 		<div id="content_1">
-			
+<!-- 			
 			<form action="naver_movie.php" method="POST">
 			영화
 			<input type="hidden" name="target" value="movie">
 			<input type="text" name="query">
 			<input type="submit">
 			</form>
+-->
+			<a href="naver_movie.php"><input type="button" value="영화검색"> </a>
 		</div>
 		
 		<div id="content_1">
