@@ -2,97 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<style type="text/css">
-	
-	#header{
-		width: 100%;
-		height: 260px;
-		border: 2px solid black;
-		background-color: black;
-	}
-	
-	#login_box{
-		width: 100%;
-		height: 50px;
-		float: center;
-		border: 1px solid gray;
-		background-color: gray;
-		text-align: right;
-	}
-	
-	#login{
-		padding-right:30%;
-	}
-	
-	
-	#logo{
-		width: 75%;
-		height: 125px;
-		margin: 0 auto;
-		float: center;
-		border: 3px solid red;
-		background-color: red;
-		text-align: center;
-	}
-	
-	
-	#menu_box{
-		width: 75%;
-		height: 75px;
-		float: center;
-		margin: 0 auto;
-		border: 2px solid darkgray;
-		background-color: darkgray;
-	}
-	
-	li{
-		display:inline;  
-		text-decoration: none;
-		padding-right: 50px;
-		font-size: 25px;
-	}
-	
-	a{ 
-		text-decoration: none;
-	}
-	
-	
-	#content_wrap{
-		width: 75%;
-		height: 100%; 
-		margin: 0 auto;
-		border: 2px dashed blue;
-		background-color: lightblue;
-	}
-	
-	#footer{
-		width: 100%;
-		height: 150px;
-		border: 2px dotted salmon;
-		background-color: salmon;
-		text-align: center;
-	}
-	
-	#movie_result{
-		margin: 0 auto;
-		width: 80%;
-	}
-	
-	table, td{
-		align: center;
-		border: 2px solid black;
-		border-collapse: collapse;
-	}
-	
-	table{
-		width: 100%;
-	}
-	
-	.img_td{
-		text-align: center;
-	}
-	
-</style>
+<link rel="stylesheet" type="text/css" href="resources/css/myTheme.css">
 
 <script language="javascript" src="/jquery/jquery-1.11.2.js"></script>
 <script language="javascript" src="/jquery/jquery-ui.js"></script>
@@ -145,7 +55,7 @@ $(document).ready(function(){
 					
 					// html 만들기
 					naverHtml += "<tr>";
-					naverHtml += "<td class='img_td'><img src='" + moviePoster + "' alt='Image not found' onerror=\"this.onerror=null;this.src='image/no_img.png';\"></td>";
+					naverHtml += "<td class='img_td'><img src='" + moviePoster + "' alt='Image not found' onerror=\"this.onerror=null;this.src='resources/images/no_img.png';\"></td>";
 					naverHtml += "<td>(" + pubDate + ")" + movieTitle + "<br>:" + movieSubtitle + "</td>";
 					naverHtml += "<td>" + movieDirector + "</td>";
 					naverHtml += "<td>" + movieActor + "</td>";
@@ -183,112 +93,110 @@ $(document).ready(function(){
 
 </head>
 <body>
-	<?php 
-		require_once('template/header.php');
-	?>
+
+	<?php require_once('template/header.php'); ?>
 
 	<div id="content_wrap">
-		<div class="search_book">
-			<fieldset class="srch">
-					<legend>영화 검색</legend>
-					<div id="content_1">			
-						<form action="movie_proxy.php" id="movie_search_form" method="POST">
-							<select id="country">
-								<option value="" selected>::: 국가 :::</option>
-								<option value="KR">한국</option>
-								<option value="JP">일본</option>
-								<option value="US">미국</option>
-								<option value="HK">홍콩</option>
-								<option value="GB">영국</option>
-								<option value="FR">프랑스</option>
-								<option value="ETC">기타</option>
-							</select>
+		<div id="content_row1">
+			<div class="search_book">
+				<fieldset class="srch">
+						<legend>영화 검색</legend>
+						<div id="content_1">			
+							<form action="movie_proxy.php" id="movie_search_form" method="POST">
+								<select id="country">
+									<option value="" selected>::: 국가 :::</option>
+									<option value="KR">한국</option>
+									<option value="JP">일본</option>
+									<option value="US">미국</option>
+									<option value="HK">홍콩</option>
+									<option value="GB">영국</option>
+									<option value="FR">프랑스</option>
+									<option value="ETC">기타</option>
+								</select>
+								
+								<select id="genre">
+									<?php 
+									
+									//	for();
+									
+									// 한 번에 10개씩 밖에 안나옴! 
+									// api request 옵션 손볼 것. display, start, .. default option 임.
+									
+									?>
 							
-							<select id="genre">
-								<?php 
+									<option value="" selected>::::: 장르 :::::</option>
+									<option value="1">드라마</option>
+									<option value="2">판타지</option>
+									<option value="3">서부</option>
+									<option value="4">공포</option>
+									<option value="5">로맨스</option>
+									<option value="6">모험</option>
+									<option value="7">스릴러</option>
+									<option value="8">느와르</option>
+									<option value="9">컬트</option>
+									<option value="10">다큐멘터리</option>
+									<option value="11">코미디</option>
+									<option value="12">가족</option>
+									<option value="13">미스터리</option>
+									<option value="14">전쟁</option>
+									<option value="15">애니메이션</option>
+									<option value="16">범죄</option>
+									<option value="17">뮤지컬</option>
+									<option value="18">SF</option>
+									<option value="19">액션</option>
+									<option value="20">무협</option>
+									<option value="21">에로</option>
+									<option value="22">서스펜스</option>
+									<option value="23">서사</option>
+									<option value="24">블랙코미디</option>
+									<option value="25">실험</option>
+									<option value="26">영화카툰</option>
+									<option value="27">영화음악</option>
+									<option value="28">영화패러디</option>
+								</select>
 								
-								//	for();
-								
-								// 한 번에 10개씩 밖에 안나옴! 
-								// api request 옵션 손볼 것. display, start, .. default option 임.
-								
-								?>
-						
-								<option value="" selected>::::: 장르 :::::</option>
-								<option value="1">드라마</option>
-								<option value="2">판타지</option>
-								<option value="3">서부</option>
-								<option value="4">공포</option>
-								<option value="5">로맨스</option>
-								<option value="6">모험</option>
-								<option value="7">스릴러</option>
-								<option value="8">느와르</option>
-								<option value="9">컬트</option>
-								<option value="10">다큐멘터리</option>
-								<option value="11">코미디</option>
-								<option value="12">가족</option>
-								<option value="13">미스터리</option>
-								<option value="14">전쟁</option>
-								<option value="15">애니메이션</option>
-								<option value="16">범죄</option>
-								<option value="17">뮤지컬</option>
-								<option value="18">SF</option>
-								<option value="19">액션</option>
-								<option value="20">무협</option>
-								<option value="21">에로</option>
-								<option value="22">서스펜스</option>
-								<option value="23">서사</option>
-								<option value="24">블랙코미디</option>
-								<option value="25">실험</option>
-								<option value="26">영화카툰</option>
-								<option value="27">영화음악</option>
-								<option value="28">영화패러디</option>
-							</select>
-							
-							<input type="hidden" id="target" name="target" value="movie">
-							<input type="text" id="query" name="query">
-							<input id="movie_search_btn" type="button" value="검색">
-						</form>
-					</div>
-			</fieldset>
-			
-			<div id="movie_result">
-				<br>
-				<table id="movieTable">
-					<span id="rs_count"></span>
-					
-					<colgroup>
-							<col width="10%">
-							<col width="25%">
-							<col width="30%">
-							<col width="30%">
-							<col width="10%">
-					</colgroup>
-					<thead>
-							<tr>
-							<th scope="col">포스터</th>
-							<th scope="col">영화제목</th>
-							<th scope="col">감독</th>
-							<th scope="col">배우</th>
-							<th scope="col">평점</th>
-							</tr>
-					</thead>
-					<tbody id="movieList">
-							<tr id="oldlist" class="__oldlist" style="">
-									<td colspan="7" align="center">검색 결과가 없습니다.</td>
-							</tr>
-					</tbody>
+								<input type="hidden" id="target" name="target" value="movie">
+								<input type="text" id="query" name="query">
+								<input id="movie_search_btn" type="button" value="검색">
+							</form>
+						</div>
+				</fieldset>
 				
-				</table>
-				<br><br>
+				<div id="movie_result">
+					<br>
+					<table id="movieTable">
+						<span id="rs_count"></span>
+						
+						<colgroup>
+								<col width="10%">
+								<col width="25%">
+								<col width="30%">
+								<col width="30%">
+								<col width="10%">
+						</colgroup>
+						<thead>
+								<tr>
+								<th scope="col">포스터</th>
+								<th scope="col">영화제목</th>
+								<th scope="col">감독</th>
+								<th scope="col">배우</th>
+								<th scope="col">평점</th>
+								</tr>
+						</thead>
+						<tbody id="movieList">
+								<tr id="oldlist" class="__oldlist" style="">
+										<td colspan="7" align="center">검색 결과가 없습니다.</td>
+								</tr>
+						</tbody>
+					
+					</table>
+					<br><br>
+				</div>
 			</div>
-        </div>
+		</div>
+	</div>
 		
-	</div>
-	
-	<div id="footer">
-		<h1>FOOTER</h1>
-	</div>
+	<?php require_once('template/footer.php'); ?>
 	
 </body>
 </html>
