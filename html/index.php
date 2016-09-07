@@ -11,6 +11,14 @@
 	// JAVASCRIPT 영역 
 </script>
 
+<style type="text/css">
+#content_1{
+	height: 400px;
+	border: 1px solid black;
+}
+
+</style>
+
 </head>
 <body>
 
@@ -19,25 +27,29 @@
 	<div id="content_wrap">
 		
 		<div id="content_1">
-<!-- 			
+			
+ 			<!--
 			<form action="naver_movie.php" method="POST">
 			영화
 			<input type="hidden" name="target" value="movie">
 			<input type="text" name="query">
 			<input type="submit">
 			</form>
--->
 			<a href="naver_movie.php"><input type="button" value="영화검색"> </a>
+			-->
 		</div>
 		
 		<div id="content_1">
+			<!-- 
 			<form action="movie_proxy.php" method="POST">
 			뉴스
 			<input type="hidden" name="target" value="news">
 			<input type="text" name="query">
 			<input type="submit">
 			</form>
+			-->	
 		</div>
+		
 	</div>
 	
 	<?php require_once('template/footer.php'); ?>

@@ -1,8 +1,10 @@
 
 <div id="footer_div">
 	<footer>
-		<p>Posted by: Hege Refsnes</p>
-		<p>Contact information: <a href="mailto:someone@example.com">
-		someone@example.com</a>.</p>
+		<p>Posted by: SeokMin Yun</p>
+		<p>
+			Contact information: 
+			<a href="mailto:elraine@naver.com">elraine@naver.com</a>
+		</p>
 	</footer>
 </div>

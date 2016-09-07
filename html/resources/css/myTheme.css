@@ -2,15 +2,15 @@
 	
 	#header{
 		width: 100%;
-		height: 260px;
+		height: 280px;
 		border: 2px solid black;
-		background-color: silver;
+		background-color: cornsilk;
+		background-image: url('/resources/images/tile3.jpg');
 	}
 	
 	#login_box{
 		width: 100%;
 		height: 30px;
-		float: center;
 		border: 1px solid gray;
 		background-color: gray;
 		text-align: right;
@@ -25,10 +25,11 @@
 		width: 75%;
 		height: 170px;
 		margin: 0 auto;
-		float: center;
-		border: 3px solid red;
+/*		border: 3px solid red; */
 /*		background-color: gray;*/
 		text-align: center;
+		background-image: url('/resources/images/movieplanet_logo.png');
+		background-size: contain;
 	}
 	
 	
@@ -38,13 +39,15 @@
 		float: center;
 		margin: 0 auto;
 		border: 2px solid darkgray;
-		background-color: darkgray;
 	}
 	
+	ul{	
+		margin: 0 auto;
+		-webkit-padding-start: 0px;
+	}
 	li{
 		display:inline;  
 		text-decoration: none;
-		padding-right: 50px;
 		font-size: 25px;
 	}
 	
@@ -58,7 +61,7 @@
 		margin: 0 auto;
 /*		background-image: url('/resources/images/bg_img1.jpg');*/
 		background-size: 200px 200px;
-		background-image: url('/resources/images/tile3.jpg');
+		background-image: url('/resources/images/tile.jpg');
 	}
 	
 	#content_row1{
@@ -93,7 +96,32 @@
 		width: 100%;
 	}
 	
+	#newsTable{
+		width: 100%;
+		border: none;
+	}
+	
+	#content_row2{
+		width: 80%;
+		margin: 0 auto;
+	}
+	
 	.img_td{
 		text-align: center;
+	}
+	
+	.movieTitle{
+		font-size: 15px;
+	}
+	
+	.pubDate{
+		font-size: 14px;
+	}
+	
+	.menu_btn{
+		width: 100px;
+		height: 50px;
+		border-radius: 10px;
+		font-size: 20px;
 	}
 	

@@ -6,12 +6,16 @@ class NaverProxy {
 		$query = urlencode($query);
 		$client_id = "V9jj1_LsXcC1yH5_ORE2";
 		$client_secret = "UZXCf0pQgr";
-		$url = "https://openapi.naver.com/v1/search/".$target.".xml";
-		$url = sprintf("%s?query=%s&country=%s&genre=%s", $url, $query, $country, $genre);
+
+		$url = "https://openapi.naver.com/v1/search/".$target.".xml";		
+		if($target === 'movie'){
+			$url = sprintf("%s?query=%s&country=%s&genre=%s", $url, $query, $country, $genre);
+		}else if($target === 'news'){
+			$url = sprintf("%s?query=%s&display=5", $url, $query);
+		}
+		
 //		$url = sprintf("%s?query=%s&display=5&start=1&sort=sim", $url, $query);
 		$is_post = false;
-		
-//		echo "<br>".$url . "<br>";
 		
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -29,8 +33,6 @@ class NaverProxy {
 		$data = curl_exec ($ch);
 		curl_close ($ch);
 	
-//		var_dump($data);
-//		echo "<br>";
 		return $data;
 	}
 }
