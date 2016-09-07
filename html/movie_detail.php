@@ -79,9 +79,8 @@ $(document).ready(function(){
 				
 				// html 만들기
 				naverHtml += "<table>";
-				naverHtml += "<tr><td width='5%'>" + (i+1) + "</td><td width='70%'>" + newsTitle + "</td><td width='20%'>" + newsPubDate + "</td></tr>";
+				naverHtml += "<tr><td width='5%'>" + (i+1) + "</td><td width='70%'><a href='" + newsOriginalLink + "'>" + newsTitle + "</a></td><td width='20%'>" + newsPubDate + "</td></tr>";
 				naverHtml += "<tr height='100px'><td colspan='3'>" + newsDescription + "</td></tr>";
-				naverHtml += "<tr><td colspan='3'> News URL: <a href='" + newsOriginalLink + "'>" + newsOriginalLink + "</a></td></tr>";
 				naverHtml += "</table><br>";
 			}
 			
