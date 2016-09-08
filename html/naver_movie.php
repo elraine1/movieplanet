@@ -122,38 +122,38 @@ $(document).ready(function(){
 		<div id="content_row1">
 			<div class="search_book">
 				<fieldset class="srch">
-						<legend>영화 검색</legend>
-						<div id="content_1">			
-							<form action="movie_proxy.php" id="movie_search_form" method="POST">
-								<select id="country">
-									<option value="" selected>::: 국가 :::</option>
-									<?php 
-										$country = array("KR" => "한국", "JP" => "일본", "US" => "미국", "HK" => "홍콩", 
-														"GB" => "영국", "FR" => "프랑스", "ETC" => "기타");
-										foreach($country as $code => $countryName){
-											printf("<option value=%s>%s</option>", $code, $countryName);
-										}
-									?>
-								</select>
-								
-								<select id="genre">
-									<option value="" selected>::::: 장르 :::::</option>
-									<?php 
-										$genre = array("드라마", "판타지", "서부", "공포", "로맨스", "모험", "스릴러", "느와르", "컬트", "다큐멘터리", 
-										"코미디", "가족", "미스터리", "전쟁", "애니메이션", "범죄", "뮤지컬", "SF", "액션", "무협", 
-										"에로", "서스펜스", "서사", "블랙코미디", "실험", "영화카툰", "영화음악", "영화패러디");
-										
-										for($i=0; $i<count($genre); $i++){
-											printf("<option value=%d>%s</option>", $i+1, $genre[$i]);
-										}
-									?>
-								</select>
-								
-								<input type="hidden" id="target" name="target" value="movie">
-								<input type="text" id="query" name="query">
-								<input id="movie_search_btn" type="button" value="검색">
-							</form>
-						</div>
+					<legend>영화 검색</legend>
+					<div id="content_1">			
+						<form action="movie_proxy.php" id="movie_search_form" method="POST">
+							<select id="country">
+								<option value="" selected>::: 국가 :::</option>
+								<?php 
+									$country = array("KR" => "한국", "JP" => "일본", "US" => "미국", "HK" => "홍콩", 
+													"GB" => "영국", "FR" => "프랑스", "ETC" => "기타");
+									foreach($country as $code => $countryName){
+										printf("<option value=%s>%s</option>", $code, $countryName);
+									}
+								?>
+							</select>
+							
+							<select id="genre">
+								<option value="" selected>::::: 장르 :::::</option>
+								<?php 
+									$genre = array("드라마", "판타지", "서부", "공포", "로맨스", "모험", "스릴러", "느와르", "컬트", "다큐멘터리", 
+									"코미디", "가족", "미스터리", "전쟁", "애니메이션", "범죄", "뮤지컬", "SF", "액션", "무협", 
+									"에로", "서스펜스", "서사", "블랙코미디", "실험", "영화카툰", "영화음악", "영화패러디");
+									
+									for($i=0; $i<count($genre); $i++){
+										printf("<option value=%d>%s</option>", $i+1, $genre[$i]);
+									}
+								?>
+							</select>
+							
+							<input type="hidden" id="target" name="target" value="movie">
+							<input type="text" id="query" name="query">
+							<input id="movie_search_btn" type="button" value="검색">
+						</form>
+					</div>
 				</fieldset>
 				
 				<div id="movie_result">
@@ -179,7 +179,7 @@ $(document).ready(function(){
 						</thead>
 						<tbody id="movieList">
 								<tr id="oldlist" class="__oldlist" style="">
-										<td colspan="7" align="center">검색 결과가 없습니다.</td>
+										<td colspan="5" align="center">검색 결과가 없습니다.</td>
 								</tr>
 						</tbody>
 					

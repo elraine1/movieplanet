@@ -115,11 +115,11 @@ $(document).ready(function(){
 	$query = "영화 " . $_GET['movieTitle'];
 	
 	$naverproxy = new NaverProxy();
-	$newsList = simplexml_load_string($naverproxy -> queryNaver($query, $target, "", ""))->channel->item;
+	$newsList = simplexml_load_string($naverproxy -> queryNaver($query, $target, "", "")) -> channel -> item;
 //	print_r($newsList[0]);
 
 //	$daumproxy = 다음 영화 API 
-	
+	$movieDetail = 
 ?>
 
 
