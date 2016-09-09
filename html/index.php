@@ -6,9 +6,31 @@
 
 <script language="javascript" src="/jquery/jquery-1.11.2.js"></script>
 <script language="javascript" src="/jquery/jquery-ui.js"></script>
+<script language="javascript" src="/jquery/KobisOpenAPIRestService.js"></script>
 
 <script>
 	// JAVASCRIPT 영역 
+	
+$(document).ready(function(){
+
+	var targetDt = "20120101";
+	var itemPerPage = "10";
+	var multiMovieYn = "";
+	var repNationCd = "";
+	var wideAreaCd = "";
+
+	var key = '29321a1defe83f76ada504206f1aa602';
+	var service = new KobisOpenAPIRestService(key);
+	alert(service);
+	
+	var dailyResponse = service.getDailyBoxOffice(true, targetDt, itemPerPage, multiMovieYn, repNationCd, wideAreaCd);
+	
+	alert(dailyResponse);
+	
+//	$newsList = simplexml_load_string($naverproxy -> queryNaver($query, $target, "", ""))->channel->item;
+});
+// http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.xml?key=430156241533f1d058c603178cc3ca0e
+6t
 </script>
 
 <style type="text/css">

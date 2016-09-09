@@ -29,6 +29,7 @@ function getGetParams(){
 	
 $(document).ready(function(){
 
+	
 /*
 	var $_GET = getGetParams();
 	var news_url = "news_proxy.php";
@@ -102,6 +103,8 @@ $(document).ready(function(){
 	});
 	*/
 });
+
+
 
 	
 	
