@@ -1,30 +1,3 @@
-/*
-class KobisOpenAPIRestService(key, host){
-	var key;
-	var host;
-	var DAILY_BOXOFFICE_URI;
-	var WEEKLY_BOXOFFICE_URI;
-	var COM_CODE_LIST_URI;
-	var MOVIE_LIST_URI;
-	var MOVIE_INFO_URI;
-	var COMPANY_LIST_URI;
-	var COMPANY_INFO_URI;
-	
-	constructor(key, host){
-		this.key = key;
-		this.host = host? host:"http://www.kobis.or.kr";
-		this.DAILY_BOXOFFICE_URI = "/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList";
-		this.WEEKLY_BOXOFFICE_URI = "/kobisopenapi/webservice/rest/boxoffice/searchWeeklyBoxOfficeList";	
-		this.COM_CODE_LIST_URI = "/kobisopenapi/webservice/rest/code/searchCodeList";
-		this.MOVIE_LIST_URI = "/kobisopenapi/webservice/rest/movie/searchMovieList";
-		this.MOVIE_INFO_URI = "/kobisopenapi/webservice/rest/movie/searchMovieInfo";
-		this.COMPANY_LIST_URI = "/kobisopenapi/webservice/rest/company/searchCompanyList";
-		this.COMPANY_INFO_URI = "/kobisopenapi/webservice/rest/company/searchCompanyInfo";
-	}
-	
-}
-*/
-
 function KobisOpenAPIRestService(key,host){
 	this.key = key;
 	this.host = host? host:"http://www.kobis.or.kr";
@@ -61,6 +34,7 @@ KobisOpenAPIRestService.prototype.requestGet
 	});
 	return retVal;
 };
+
 KobisOpenAPIRestService.prototype.getDailyBoxOffice
 =  function(isJson, paramMap){
 	return this.requestGet(this.key, this.host, this.DAILY_BOXOFFICE_URI, isJson, paramMap);
@@ -96,5 +70,4 @@ KobisOpenAPIRestService.prototype.getCompanyList
 KobisOpenAPIRestService.prototype.getCompnayInfo
 =  function(isJson, paramMap){
 	return this.requestGet(this.key, this.host, this.COMPANY_INFO_URI, isJson, paramMap);
-
 };

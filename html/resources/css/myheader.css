@@ -1,0 +1,28 @@
+
+
+#header{
+	width: 100%;
+	height: 180px;
+	border: 2px solid black;
+	background-color: cornsilk;
+	background-image: url('/resources/images/tile3.jpg');
+}
+
+#login_box{
+	width: 100%;
+	height: 30px;
+	border: 1px solid gray;
+	background-color: gray;
+	text-align: right;
+}
+
+#logo{
+	width: 75%;
+	height: 170px;
+	margin: 0 auto;
+/*		border: 3px solid red; */
+/*		background-color: gray;*/
+	text-align: center;
+	background-image: url('/resources/images/movieplanet_logo.png');
+	background-size: contain;
+}

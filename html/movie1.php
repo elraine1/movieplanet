@@ -40,8 +40,12 @@ function left_pad(number){
 	return output;
 }
 
+function jsonCallback(json){
+	console.log(json);
+}
 
 $(document).ready(function() {
+	
 	$("#btnSearch").click(function() {
 	//alert('호출시작');
 	//MTI3LTE0MTQ5MjI1ODcyODgtNjc0YmI4OTktNTJmZS00M2Y4LThiYjgtOTk1MmZlNzNmOGE3
@@ -59,30 +63,38 @@ $(document).ready(function() {
 		}
 		$("#header").html("상태:처리중입니다...");
 		var key = $("#txtKey").val();
-		var curPage =$("#txtcurPage").val();
+		var curPage = $("#txtcurPage").val();
 		var url = $("#txtUrl").val();// + "key=" + key + "&targetDt=" + ymd;
-		var movieNm =$("#txtmovieNm").val();
+		var movieNm = $("#txtmovieNm").val();
 		// xhrObj.setRequestHeader("x-waple-authorization",key);
 		$.ajax({
 			beforeSend: function(xhrObj){
-				xhrObj.setRequestHeader("Content-Type","application/json");
-				xhrObj.setRequestHeader("Accept","application/json");
-			},
+					xhrObj.setRequestHeader("Content-Type","application/json");
+					xhrObj.setRequestHeader("Accept","application/json");
+				},	
 			type: "GET",
 			url: url,
-			data: {key:key,curPage:curPage,movieNm:movieNm},
-			dataType: "json",
+			dataType: "text",
+//			jsonpCallback: "jsonCallback",
+			data: {key:key, curPage:curPage, movieNm:movieNm},
+			async: false,
 			success: function(data){
+				alert('123');
+				/*
 				$tag = $("#result");
 				$("#header").html("총건수 : " + data.movieListResult.totCnt + "건");
 				//alert(data.boxOfficeResult.dailyBoxOfficeList);
 				$tag.html( "" );
 				$.each(data.movieListResult.movieList, function() {
-				$tag.append( "<div>코드:" +this["movieCd"]+ "</div>" );
-				$tag.append( "<div>영화명:" +this["movieNm"]+ "</div>" );
-				$tag.append( "<div>장르:" +this["genreAlt"]+ "</div>" );
+					$tag.append( "<div>코드:" +this["movieCd"]+ "</div>" );
+					$tag.append( "<div>영화명:" +this["movieNm"]+ "</div>" );
+					$tag.append( "<div>장르:" +this["genreAlt"]+ "</div>" );
 				});
-			} //success
+				*/
+			},//success
+			error: function(xhr){
+				alert('Error ' + xhr.messages);
+			}
 		}); //$.ajax
 	});
 	
@@ -117,24 +129,52 @@ $(document).ready(function() {
 			data: {key:key, targetDt:targetDt, multiMovieYn:multiMovieYn},
 			dataType: "json",
 			success: function(data){
-				$tag = $("#result2");
-				$("#header2").html("총건수 : " + data.movieListResult.totCnt + "건");
-				//alert(data.boxOfficeResult.dailyBoxOfficeList);
-				$tag.html( "" );
-				$.each(data.movieListResult.movieList, function() {
-				$tag.append( "<div>코드:" +this["movieCd"]+ "</div>" );
-				$tag.append( "<div>영화명:" +this["movieNm"]+ "</div>" );
-				$tag.append( "<div>장르:" +this["genreAlt"]+ "</div>" );
-				});
+				alert(data.val());
+				
 			} //success
 		}); //$.ajax
 	});
+	
+	
+	$("#movie_search_btn").click(function(){
+		var action = $("#movie_search_form").attr("action");
+		var form_data = {
+			"movieNm": $("#movieNm").val()
+		};
+		
+		$.ajax({
+			
+			// 한 번에 10개씩 밖에 안나옴! 
+			// api request 옵션 손볼 것. display, start, .. default option 임.
+			dataType: "text",
+			type: "POST",
+			async: false,
+			url: action,
+			data: form_data,
+			success: function(result){
+				alert(result);
+//				var xml = $(result);
+//				var items = xml.find("movieListResult");
+//				alert(items);
+//				alert(result);
+			},
+			error: function(xhr){
+				alert(xhr.responseText);
+//				alert('Error');
+			},
+			timeout : 3000
+		});
+		
+	});
+	
 }); //function //ready
 //searchDailyBoxOfficeList
 </script>
 </head>
 <body>
 	<header>
+	
+		<h3>영화검색(kobis)</h3>
 		<table>
 			<tr>
 				<td>1.Base Url : <input type="text" id="txtUrl" name="txtUrl" value="http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.xml?"
@@ -206,8 +246,18 @@ $(document).ready(function() {
 		<div id="header2">
 		</div>
 	</header>
-	
-	
+		
+		<h3>영화검색(kobis proxy)</h3>	
+		<form action="/movie_proxy_kobis.php" method="POST" id="movie_search_form">
+			<input type="text" name="movieNm" id="movieNm">
+			<input type="button" id="movie_search_btn" value="검색">
+		</form>
+		
+		
+		
+		<div id="header">
+		</div>
+	</header>
 	
 	<div id="result2">
 	</div>
